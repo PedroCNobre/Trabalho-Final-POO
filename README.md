@@ -1,5 +1,5 @@
 # Trabalho-Final-POO
-Trabalho final da matéria de Programação orientada a objetos,as pessoas da equipe são:	
+Trabalho final da matéria de Programação orientada a objetos,os pessoas da equipe são:	
 
 Antonio Lucas Sanches Ferreira,
 
