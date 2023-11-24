@@ -10,6 +10,8 @@ public class Turma extends Pessoa {
     }
 
     private int tamanhoMaximo;
+
+    private String NomeT;
     //gets e sets
     public int getTamanhoMaximo() {
         return tamanhoMaximo;
@@ -23,7 +25,7 @@ public class Turma extends Pessoa {
         Alunos = alunos;
     }
 
-    private String NomeT;
+
 
     public String getNomeT() {
         return NomeT;

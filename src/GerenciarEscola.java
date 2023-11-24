@@ -57,6 +57,7 @@ public class GerenciarEscola {
                     turma.listarAlunos();
                     break;
                 case 6:
+                    //Pede e passa os valores do professor para a função
                     Professor professor = new Professor();
                     System.out.println("digite o nome do professor");
                     String nome = scanner.nextLine();
@@ -84,6 +85,6 @@ public class GerenciarEscola {
                     break;
             }
         }
-        scanner.close();
+        scanner.close(); //Fecha o scanner
     }
 }
