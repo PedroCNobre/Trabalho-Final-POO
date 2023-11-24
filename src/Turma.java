@@ -1,15 +1,16 @@
 import java.util.ArrayList;
-import java.util.Scanner;
+
 public class Turma extends Pessoa {
+    //Declaração de variaveis
     private ArrayList<String> Alunos = new ArrayList<String>();
-    private String Professor;
+    Professor professor = new Professor();
 
     public ArrayList<String> getAlunos() {
         return Alunos;
     }
 
     private int tamanhoMaximo;
-
+    //gets e sets
     public int getTamanhoMaximo() {
         return tamanhoMaximo;
     }
@@ -22,15 +23,17 @@ public class Turma extends Pessoa {
         Alunos = alunos;
     }
 
-    public String getProfessor() {
-        return Professor;
+    private String NomeT;
+
+    public String getNomeT() {
+        return NomeT;
     }
 
-
-    public void setProfessor(String professor) {
-        this.Professor = professor;
+    public void setNomeT(String nomeT) {
+        NomeT = nomeT;
     }
 
+    //Método para remover os alunos da turma
     public boolean removerAluno(String aluno) {
         if (this.Alunos.contains(aluno)) {
             this.Alunos.remove(aluno);
@@ -41,6 +44,7 @@ public class Turma extends Pessoa {
             return false;
         }
     }
+    //Método para listar todos os alunos da turma
     public void listarAlunos() {
         if (this.Alunos.isEmpty()) {
             System.out.println("Não há alunos na turma.");
@@ -51,10 +55,15 @@ public class Turma extends Pessoa {
             }
         }
     }
-    public void definirProfessor(Professor professor) {
-        this.Professor = professor.getNome(); // Supondo que o nome do professor seja relevante para a turma
+    //Método para definir o professor da turma
+    public void definirProfessor(String nome, String esp, ArrayList<String> dis) {
+        professor.setNome(nome);
+        professor.setEspecialidades(esp);
+        professor.setDisciplinas(dis);
+
         System.out.println("Professor definido para a turma com sucesso.");
     }
+    //Método para adicionar Alunos na turma
     public boolean adicionarAluno(String aluno) {
         if (this.Alunos.size() < tamanhoMaximo) {
             this.Alunos.add(aluno);
@@ -65,15 +74,18 @@ public class Turma extends Pessoa {
             return false;
         }
     }
+    //Escrita do método toString
     public String toString() {
         String objeto;
-        objeto = "Turma: " + this.getNome() + "\nAlunos da Turma: " + this.getAlunos();
-        if (this.getProfessor() != null) {
-            objeto += "\nProfessor: " + this.getProfessor();
-        } else {
-            objeto += "\nProfessor: Nenhum professor atribuído";
-        }
-        return objeto;
+        objeto =  "\nNome da Turma: " + this.getNomeT()
+                + "\nAlunos da Turma: " + this.getAlunos()
+                + "\nProfessor: " + professor.getNome()
+                + "\nEspecialidade: " + professor.getEspecialidades()
+                + "\nDisciplinas: " + professor.getDisciplinas();
+
+
+
+            return objeto;
     }
 
 

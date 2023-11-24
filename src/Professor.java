@@ -1,12 +1,12 @@
 import java.util.ArrayList;
 
 public class Professor extends Pessoa {
+    //Declaração das variaveis
     private String especialidades;
     private ArrayList<String> disciplinas = new ArrayList<>();
-    private boolean atribuido;
 
     private String nome;
-
+    //gets e sets
     @Override
     public String getNome() {
         return nome;
@@ -17,13 +17,6 @@ public class Professor extends Pessoa {
         this.nome = nome;
     }
 
-    public boolean isAtribuido() {
-        return atribuido;
-    }
-
-    public void setAtribuido(boolean atribuido) {
-        this.atribuido = atribuido;
-    }
 
     public String getEspecialidades() {
         return especialidades;
@@ -41,9 +34,12 @@ public class Professor extends Pessoa {
         this.disciplinas = disciplinas;
     }
 
+
+
+    //Escrita do método toString
     @Override
     public String toString() {
-        return "Nome do Professor: " + this.getNome() + "\nDisciplinas do professor: " + this.getDisciplinas();
+        return "Nome do Professor: " + this.getNome() + "\nDisciplinas do professor: " + this.getDisciplinas() + "Especialidades: " + this.getEspecialidades();
     }
 }
 

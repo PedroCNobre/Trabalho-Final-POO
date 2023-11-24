@@ -1,9 +1,10 @@
 
 
 public abstract class  Pessoa {
-
+    //Escrita da classe abstrata
     private String nome;
     private String data_nascimento;
+    //gets e sets
     public String getNome() {
         return nome;
     }
@@ -16,6 +17,7 @@ public abstract class  Pessoa {
     public void setData_nascimento(String data_nascimento) {
         this.data_nascimento = data_nascimento;
     }
+    //Escrita do método toString
     @Override
     public String toString() {
         String objeto;

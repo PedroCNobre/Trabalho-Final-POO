@@ -1,22 +1,25 @@
+import java.util.ArrayList;
+import java.util.IllegalFormatCodePointException;
 import java.util.Scanner;
-
+//Menu do projeto
 public class GerenciarEscola {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         Turma turma = new Turma();
-        turma.setNome("Turma A");
-        turma.setTamanhoMaximo(30); // Definindo o tamanho máximo da turma
+
 
         boolean continuar = true;
 
         while (continuar) {
             System.out.println("### Menu ###");
-            System.out.println("1. Adicionar aluno");
-            System.out.println("2. Remover aluno");
-            System.out.println("3. Listar alunos");
-            System.out.println("4. Definir professor");
-            System.out.println("5. Mostrar informações da turma");
-            System.out.println("6. Sair");
+            System.out.println("1. Digite o tamanho maximo da sala de aula");
+            System.out.println("2. Digite o nome da turma");
+            System.out.println("3. Adicionar aluno");
+            System.out.println("4. Remover aluno");
+            System.out.println("5. Listar alunos");
+            System.out.println("6. Definir professor");
+            System.out.println("7. Mostrar informações da turma");
+            System.out.println("8. Sair");
             System.out.print("Escolha uma opção: ");
 
             int opcao = scanner.nextInt();
@@ -24,31 +27,55 @@ public class GerenciarEscola {
 
             switch (opcao) {
                 case 1:
-                    System.out.print("Digite o nome do aluno a ser adicionado: ");
-                    String nomeAluno = scanner.nextLine();
-                    turma.adicionarAluno(nomeAluno);
+                    System.out.println("Digite o tamanho maximo da sala de aula");
+                    Integer Tmax = Integer.valueOf(scanner.next());
+                    turma.setTamanhoMaximo(Tmax);
                     break;
                 case 2:
+                    System.out.println("Digite o nome da turma");
+                String Tnome = scanner.nextLine();
+                 turma.setNomeT(Tnome);
+                    break;
+                case 3:
+                 if (turma.getTamanhoMaximo() == 0){
+                     System.out.println("Não foi definido o tamanho da turma! ");
+                     break;
+
+                 } else {
+                     System.out.print("Digite o nome do aluno a ser adicionado: ");
+                     String nomeAluno = scanner.nextLine();
+                     turma.adicionarAluno(nomeAluno);
+                     break;
+                 }
+                case 4:
                     System.out.print("Digite o nome do aluno a ser removido: ");
                     String nomeAlunoRemover = scanner.nextLine();
                     turma.removerAluno(nomeAlunoRemover);
                     break;
-                case 3:
+                case 5:
 
                     turma.listarAlunos();
                     break;
-                case 4:
-                    System.out.print("Digite o nome do professor: ");
-                    String nomeProfessor = scanner.nextLine();
+                case 6:
                     Professor professor = new Professor();
-                    professor.setNome(nomeProfessor);
-                    turma.definirProfessor(professor);
+                    System.out.println("digite o nome do professor");
+                    String nome = scanner.nextLine();
+                    professor.setNome(nome);
+                    System.out.println("digite a especialidade do professor");
+                    String esp = scanner.nextLine();
+                    professor.setEspecialidades(esp);
+                    System.out.println("digite a disciplina do professor");
+                    ArrayList<String> disciplinas = new ArrayList<>();
+                    String dis = scanner.nextLine();
+                    disciplinas.add(dis);
+                    professor.setEspecialidades(String.valueOf(disciplinas));
+                    turma.definirProfessor(nome,esp,disciplinas);
                     break;
-                case 5:
+                case 7:
                     System.out.println("Informações da turma:");
                     System.out.println(turma);
                     break;
-                case 6:
+                case 8:
                     continuar = false;
                     System.out.println("Encerrando o programa...");
                     break;
