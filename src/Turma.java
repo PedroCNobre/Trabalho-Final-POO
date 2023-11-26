@@ -10,8 +10,6 @@ public class Turma extends Pessoa {
     }
 
     private int tamanhoMaximo;
-
-    private String NomeT;
     //gets e sets
     public int getTamanhoMaximo() {
         return tamanhoMaximo;
@@ -25,7 +23,7 @@ public class Turma extends Pessoa {
         Alunos = alunos;
     }
 
-
+    private String NomeT;
 
     public String getNomeT() {
         return NomeT;
@@ -33,6 +31,17 @@ public class Turma extends Pessoa {
 
     public void setNomeT(String nomeT) {
         NomeT = nomeT;
+    }
+    //Método para adicionar Alunos na turma
+    public boolean adicionarAluno(String aluno) {
+        if (this.Alunos.size() < tamanhoMaximo) {
+            this.Alunos.add(aluno);
+            System.out.println("Aluno adicionado à turma com sucesso.");
+            return true;
+        } else {
+            System.out.println("A turma atingiu o tamanho máximo.");
+            return false;
+        }
     }
 
     //Método para remover os alunos da turma
@@ -65,17 +74,8 @@ public class Turma extends Pessoa {
 
         System.out.println("Professor definido para a turma com sucesso.");
     }
-    //Método para adicionar Alunos na turma
-    public boolean adicionarAluno(String aluno) {
-        if (this.Alunos.size() < tamanhoMaximo) {
-            this.Alunos.add(aluno);
-            System.out.println("Aluno adicionado à turma com sucesso.");
-            return true;
-        } else {
-            System.out.println("A turma atingiu o tamanho máximo.");
-            return false;
-        }
-    }
+
+
     //Escrita do método toString
     public String toString() {
         String objeto;
